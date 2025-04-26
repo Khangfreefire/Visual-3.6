@@ -1,0 +1,166 @@
+-- Blade Ball Full GUI | Visual V3 Style (Rayfield)
+
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "Blade Ball Hub | Visual V3",
+    LoadingTitle = "Blade Ball Hub",
+    LoadingSubtitle = "by YourName",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "BladeBallHub", -- Change if you want
+        FileName = "VisualV3"
+    },
+    Discord = {
+        Enabled = false,
+        Invite = "",
+        RememberJoins = false
+    },
+    KeySystem = false,
+})
+
+-- Home Tab
+local HomeTab = Window:CreateTab("Home", 4483362458)
+
+-- Main Tab
+local MainTab = Window:CreateTab("Main", 4483362458)
+
+-- Combat Section
+local CombatSection = MainTab:CreateSection("Combat")
+
+Rayfield:CreateToggle({
+    Name = "Auto Parry",
+    CurrentValue = false,
+    Flag = "AutoParry",
+    SectionParent = CombatSection,
+    Callback = function(Value)
+        print("Auto Parry:", Value)
+        -- Add Auto Parry function here
+    end,
+})
+
+Rayfield:CreateToggle({
+    Name = "Auto Spam",
+    CurrentValue = false,
+    Flag = "AutoSpam",
+    SectionParent = CombatSection,
+    Callback = function(Value)
+        print("Auto Spam:", Value)
+        -- Add Auto Spam function here
+    end,
+})
+
+Rayfield:CreateDropdown({
+    Name = "Curve Position",
+    Options = {"Left", "Center", "Right"},
+    CurrentOption = "Center",
+    Flag = "CurvePosition",
+    SectionParent = CombatSection,
+    Callback = function(Option)
+        print("Curve Position selected:", Option)
+        -- Handle curve position here
+    end,
+})
+
+Rayfield:CreateSlider({
+    Name = "Customise FPS",
+    Range = {60, 1000},
+    Increment = 10,
+    Suffix = "FPS",
+    CurrentValue = 500,
+    Flag = "CustomFPS",
+    SectionParent = CombatSection,
+    Callback = function(Value)
+        print("FPS Set to:", Value)
+        -- Handle FPS customization here
+    end,
+})
+
+-- Parry Settings Section
+local ParrySection = MainTab:CreateSection("Parry Settings")
+
+Rayfield:CreateDropdown({
+    Name = "Parry Method",
+    Options = {"Legit", "Silent", "Instant"},
+    CurrentOption = "Legit",
+    Flag = "ParryMethod",
+    SectionParent = ParrySection,
+    Callback = function(Option)
+        print("Parry Method selected:", Option)
+    end,
+})
+
+Rayfield:CreateSlider({
+    Name = "Parry Accuracy",
+    Range = {0, 100},
+    Increment = 1,
+    Suffix = "%",
+    CurrentValue = 100,
+    Flag = "ParryAccuracy",
+    SectionParent = ParrySection,
+    Callback = function(Value)
+        print("Parry Accuracy:", Value)
+    end,
+})
+
+-- Spam Settings Section
+local SpamSection = MainTab:CreateSection("Spam Settings")
+
+Rayfield:CreateToggle({
+    Name = "Manual Spam",
+    CurrentValue = false,
+    Flag = "ManualSpam",
+    SectionParent = SpamSection,
+    Callback = function(Value)
+        print("Manual Spam:", Value)
+    end,
+})
+
+Rayfield:CreateSlider({
+    Name = "Spam Accuracy",
+    Range = {0, 100},
+    Increment = 1,
+    Suffix = "%",
+    CurrentValue = 50,
+    Flag = "SpamAccuracy",
+    SectionParent = SpamSection,
+    Callback = function(Value)
+        print("Spam Accuracy:", Value)
+    end,
+})
+
+Rayfield:CreateSlider({
+    Name = "Spam Sensitivity",
+    Range = {0, 100},
+    Increment = 1,
+    Suffix = "%",
+    CurrentValue = 50,
+    Flag = "SpamSensitivity",
+    SectionParent = SpamSection,
+    Callback = function(Value)
+        print("Spam Sensitivity:", Value)
+    end,
+})
+
+Rayfield:CreateSlider({
+    Name = "Spam Delay",
+    Range = {0, 5},
+    Increment = 0.1,
+    Suffix = "s",
+    CurrentValue = 0,
+    Flag = "SpamDelay",
+    SectionParent = SpamSection,
+    Callback = function(Value)
+        print("Spam Delay:", Value)
+    end,
+})
+
+-- Misc Tab
+local MiscTab = Window:CreateTab("Misc", 4483362458)
+
+-- Credits Tab
+local CreditsTab = Window:CreateTab("Credits", 4483362458)
+Rayfield:CreateParagraph({
+    Title = "Credits",
+    Content = "Created by YourName\nUI Library: Rayfield"
+})
